@@ -7,15 +7,34 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-bs-toggle="collapse" href="#category" aria-expanded="false"
+                aria-controls="ui-basic">
                 <i class="mdi mdi-circle-outline menu-icon"></i>
                 <span class="menu-title">Category</span>
                 <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="category">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Add Category</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">View Category</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/category/create') }}">Add Category</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/category') }}">View Category</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#products" aria-expanded="false"
+                aria-controls="ui-basic">
+                <i class="mdi mdi-equal-box menu-icon"></i>
+                <span class="menu-title">Products</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="products">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/products/create') }}">Add Products</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('admin/products') }}">View Products</a>
+                    </li>
                 </ul>
             </div>
         </li>
@@ -32,7 +51,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/admin/brands">
+            <a class="nav-link" href="{{ url('admin/brands') }}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Brands</span>
             </a>
@@ -55,7 +74,8 @@
                     <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
                     <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
                     <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a>
+                    </li>
                 </ul>
             </div>
         </li>
