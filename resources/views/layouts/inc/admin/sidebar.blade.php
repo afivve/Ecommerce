@@ -57,9 +57,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
-                <i class="mdi mdi-emoticon menu-icon"></i>
-                <span class="menu-title">Icons</span>
+            <a class="nav-link" href="{{ url('admin/sliders') }}">
+                <i class="mdi mdi-content-copy menu-icon"></i>
+                <span class="menu-title">Home Slider</span>
             </a>
         </li>
         <li class="nav-item">
