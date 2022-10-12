@@ -6,6 +6,7 @@ use App\Models\Slider;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 use App\Http\Requests\SliderFormRequest;
 
 class SliderController extends Controller
@@ -24,6 +25,17 @@ class SliderController extends Controller
     public function store(SliderFormRequest $request)
     {
         $validatedData = $request->validated();
+
+        /* $file = $request->file('image');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $img = Image::make($file);
+        if (Image::make($file)->resize(300, 200)) {
+            $img->resize(300, 200, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+        }
+        $img->save(public_path('uploads/slider/') . $filename);
+        $validatedData['image'] = "uploads/slider/$filename"; */
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
