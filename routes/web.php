@@ -30,6 +30,7 @@ use App\Http\Controllers\Frontend\FrontendController;
 Auth::routes();
 
 Route::get('/', [FrontendController::class, 'index']);
+Route::get('/collections',  [FrontendController::class, 'categories']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
