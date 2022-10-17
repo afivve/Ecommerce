@@ -29,8 +29,11 @@ class View extends Component
                 'user_id' => auth()->user()->id,
                 'product_id' => $productId
             ]);
+
             $this->emit('wishlistAddedUpdated');
-            session()->flash('message', 'Wishlist Added Successfully');
+
+            /* session()->flash('message', 'Wishlist Added Successfully'); */
+
             $this->dispatchBrowserEvent('message', [
                 'text' => 'Wishlist Added Successfully',
                 'type' => 'success',
@@ -107,6 +110,9 @@ class View extends Component
                                         'product_color_id' => $this->productColorId,
                                         'quantity' => $this->quantityCount
                                     ]);
+
+                                    $this->emit('CartAddedUpdated');
+
                                     $this->dispatchBrowserEvent('message', [
                                         'text' => 'Product Added to Cart',
                                         'type' => 'success',
@@ -153,6 +159,9 @@ class View extends Component
                                     'product_id' => $productId,
                                     'quantity' => $this->quantityCount
                                 ]);
+
+                                $this->emit('CartAddedUpdated');
+
                                 $this->dispatchBrowserEvent('message', [
                                     'text' => 'Product Added to Cart',
                                     'type' => 'success',
