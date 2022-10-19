@@ -9,6 +9,9 @@
             <div class="row">
                 <div class="p-4 shadow bg-white">
                     <div class="col-md-12 text-center">
+                        @if (session('message'))
+                            <h5 class="alert alert-success">{{ session('message') }}</h5>
+                        @endif
                         <h4>Thank You for Shopping in Afv Ecommerce</h4>
                         <hr>
                         <a href="{{ url('/collections') }}" class="btn btn-primary">Shop now</a>

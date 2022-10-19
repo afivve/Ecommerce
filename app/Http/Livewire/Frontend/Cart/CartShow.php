@@ -45,7 +45,7 @@ class CartShow extends Component
                     ]);
                 } else {
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Only ' . $cartData->productColor->quantity . ' Quantity Available',
+                        'text' => 'Only ' . $cartData->product->quantity . ' Quantity Available',
                         'type' => 'success',
                         'status' => 200
                     ]);
