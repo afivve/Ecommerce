@@ -8,13 +8,15 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Frontend\OrderController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\WishlistController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -94,5 +96,10 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/colors/{color}/edit', 'edit');
         Route::put('/colors/{color_id}', 'update');
         Route::get('/colors/{color_id}/delete', 'destroy');
+    });
+
+    Route::controller(AdminOrderController::class)->group(function () {
+        Route::get('/orders', 'index');
+        Route::get('/orders/{orderId}', 'show');
     });
 });
