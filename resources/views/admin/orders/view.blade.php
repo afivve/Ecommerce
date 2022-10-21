@@ -20,6 +20,14 @@
                     <h4 class="text-primary">
                         <i class="fa fa-shopping-cart text-dark"></i> My Order Details
                         <a href="{{ url('admin/orders') }}" class="btn btn-danger btn-sm float-end">Back</a>
+                        <a href="{{ url('admin/invoice/' . $order->id . '/generate') }}"
+                            class="btn btn-primary btn-sm float-end mx-2">
+                            Download Invoice
+                        </a>
+                        <a href="{{ url('admin/invoice/' . $order->id) }}" target="_blank"
+                            class="btn btn-warning btn-sm float-end">
+                            View Invoice
+                        </a>
                     </h4>
                     <hr>
 
@@ -95,8 +103,8 @@
                                         @endphp
                                     </tr>
                                 @endforeach
-                                <td colspan="5" class="fw-bold">Total Amount</td>
-                                <td colspan="1" class="fw-bold">${{ $totalPrice }}</td>
+                                <td colspan="4" class="total-heading">Total Amount</td>
+                                <td colspan="1" class="total-heading">${{ $totalPrice }}</td>
 
                             </tbody>
                         </table>
