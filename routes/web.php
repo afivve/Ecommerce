@@ -35,10 +35,14 @@ use App\Http\Controllers\Frontend\WishlistController;
 
 Auth::routes();
 
-Route::get('/', [FrontendController::class, 'index']);
-Route::get('/collections',  [FrontendController::class, 'categories']);
-Route::get('/collections/{category_slug}',  [FrontendController::class, 'products']);
-Route::get('/collections/{category_slug}/{product_slug}',  [FrontendController::class, 'productView']);
+Route::controller(FrontendController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/collections', 'categories');
+    Route::get('/collections/{category_slug}', 'products');
+    Route::get('/collections/{category_slug}/{product_slug}', 'productView');
+    Route::get('/new-arrivals', 'newArrival');
+});
+
 
 Route::middleware(['auth'])->group(function () {
     Route::get('wishlist', [WishlistController::class, 'index']);
