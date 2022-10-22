@@ -137,7 +137,7 @@
                                         <div class="mb-3">
                                             <label>Trending</label>
                                             <input type="checkbox" name="trending"
-                                                value="{{ $product->trending == '1' ? 'checked' : '' }}"
+                                                value="{{ $product->trending == '0' ? 'checked' : '' }}"
                                                 style="width: 50px; height: 50px">
                                         </div>
                                     </div>

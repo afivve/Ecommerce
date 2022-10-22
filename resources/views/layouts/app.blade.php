@@ -25,6 +25,10 @@
 
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
+    {{-- owl caraousel --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
+
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <!-- Default theme -->
@@ -61,6 +65,10 @@
             }
         });
     </script>
+
+    {{-- owl caraousel --}}
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    @yield('script')
 
     @livewireScripts
 

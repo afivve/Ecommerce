@@ -44,13 +44,13 @@
                                 @if ($productItem->quantity > 0)
                                     <label class="stock bg-success">In Stock</label>
                                 @else
-                                    <label class="stock bg-success">Out of Stock</label>
+                                    <label class="stock bg-danger">Out of Stock</label>
                                 @endif
 
                                 @if ($productItem->productImages->count() > 0)
                                     <a
                                         href="{{ url('/collections/' . $productItem->category->slug . '/' . $productItem->slug) }}">
-                                        {{ $productItem->name }}
+
                                         <img src="{{ asset($productItem->productImages[0]->image) }}"
                                             alt="{{ $productItem->name }}">
                                     </a>
