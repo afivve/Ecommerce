@@ -1,17 +1,30 @@
 <div>
     <div class="py-3 py-md-5">
         <div class="container">
-            @if (session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
-            @endif
 
             <div class="row">
                 <div class="col-md-5 mt-3">
-                    <div class="bg-white border">
+                    <div class="bg-white border" wire:ignore>
                         @if ($product->productImages)
-                            <img src="{{ asset($product->productImages[0]->image) }}" class="w-100" alt="Img">
+                            {{-- <img src="{{ asset($product->productImages[0]->image) }}" class="w-100" alt="Img"> --}}
+                            <div class="exzoom" id="exzoom">
+
+                                <div class="exzoom_img_box">
+                                    <ul class='exzoom_img_ul'>
+                                        @foreach ($product->productImages as $itemImg)
+                                            <li><img src="{{ asset($itemImg->image) }}" /></li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
+                                <div class="exzoom_nav"></div>
+
+                                <p class="exzoom_btn">
+                                    <a href="javascript:void(0);" class="exzoom_prev_btn">
+                                        < </a>
+                                            <a href="javascript:void(0);" class="exzoom_next_btn"> > </a>
+                                </p>
+                            </div>
                         @else
                             No Image Added
                         @endif
@@ -108,3 +121,28 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $(function() {
+
+            $("#exzoom").exzoom({
+
+                // thumbnail nav options
+                "navWidth": 60,
+                "navHeight": 60,
+                "navItemNum": 5,
+                "navItemMargin": 7,
+                "navBorder": 1,
+
+                // autoplay
+                "autoPlay": false,
+
+                // autoplay interval in milliseconds
+                "autoPlayTimeout": 2000
+
+            });
+
+        });
+    </script>
+@endpush
