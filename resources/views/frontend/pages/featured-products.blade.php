@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'New Arrival')
+@section('title', 'Featured Products')
 
 @section('content')
 
@@ -8,10 +8,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h4>New Arrivals</h4>
+                    <h4>Featured Products</h4>
                     <div class="underline mb-4"></div>
                 </div>
-                @forelse ($newArrivalProducts as $productItem)
+                @forelse ($featuredProducts as $productItem)
                     <div class="col-md-3">
                         <div class="product-card">
                             <div class="product-card-img">
@@ -43,12 +43,12 @@
                     </div>
                 @empty
                     <div class="col-md-12 p-2">
-                        <h4>No Products Available</h4>
+                        <h4>No Featured Products Available</h4>
                     </div>
                 @endforelse
 
                 <div class="text-center">
-                    <a href="{{ url('collections') }}" class="btn btn-primary btn-warning">View More</a>
+                    <a href="{{ url('collections') }}" class="btn btn-primary btn-warning">Shope More</a>
                 </div>
 
             </div>
