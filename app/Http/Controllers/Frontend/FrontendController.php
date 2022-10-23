@@ -14,14 +14,16 @@ class FrontendController extends Controller
     {
         $sliders = Slider::where('status', '0')->get();
         $trendingProducts = Product::where('trending', '1')->latest()->take(15)->get();
+        $newArrivalsProducts = Product::latest()->take(14)->get();
+        $featuredProducts = Product::where('featured', '1')->take(14)->get();
 
-        return view('frontend.index', compact('sliders', 'trendingProducts'));
+        return view('frontend.index', compact('sliders', 'trendingProducts', 'newArrivalsProducts', 'featuredProducts'));
     }
 
     public function newArrival()
     {
-        $newArrivalProducts = Product::latest()->take(16)->get();
-        return view('frontend.pages.new-arrival', compact('newArrivalProducts'));
+        $newArrivalsProducts = Product::latest()->take(16)->get();
+        return view('frontend.pages.new-arrival', compact('newArrivalsProducts'));
     }
 
     public function featuredProducts()

@@ -11,7 +11,7 @@
                     <h4>New Arrivals</h4>
                     <div class="underline mb-4"></div>
                 </div>
-                @forelse ($newArrivalProducts as $productItem)
+                @forelse ($newArrivalsProducts as $productItem)
                     <div class="col-md-3">
                         <div class="product-card">
                             <div class="product-card-img">
