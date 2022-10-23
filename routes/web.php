@@ -5,6 +5,7 @@ use App\Http\Livewire\Admin\Brand;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductController;
@@ -61,10 +62,13 @@ Route::get('thank-you', [FrontendController::class, 'thankyou']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
+
     Route::get('/dashboard', [DashboardController::class, 'index']);
 
-    Route::get('settings', [SettingController::class, 'index']);
-    Route::post('/settings', [SettingController::class, 'store']);
+    Route::controller(SettingController::class)->group(function () {
+        Route::get('/settings', 'index');
+        Route::post('/settings', 'store');
+    });
 
     Route::controller(SliderController::class)->group(function () {
         Route::get('/sliders', 'index');
@@ -115,5 +119,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
         Route::get('/invoice/{orderId}', 'viewInvoice');
         Route::get('/invoice/{orderId}/generate', 'generateInvoice');
+    });
+
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/users', 'index');
+        Route::get('/users/create', 'create');
+        Route::post('/users', 'store');
+        Route::get('/users/{user_id}/edit', 'edit');
+        Route::put('/users/{user_id}', 'update');
+        Route::get('/users/{user_id}/delete', 'destroy');
     });
 });
