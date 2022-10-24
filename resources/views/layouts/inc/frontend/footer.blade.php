@@ -58,7 +58,7 @@
                 <div class="col-md-8">
                     <p class=""> &copy; 2022 - Funda of Web IT - Ecommerce. All rights reserved.</p>
                 </div>
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <div class="social-media">
                         Get Connected:
                         {{ $appSetting->phone1 ?? 'phone 1' }}
@@ -75,7 +75,7 @@
                             <a href="{{ $appSetting->youtube }}" target="_blank"><i class="fa fa-youtube"></i></a>
                         @endif
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

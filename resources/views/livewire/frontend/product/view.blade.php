@@ -40,8 +40,8 @@
                             Home / {{ $product->category->name }} / {{ $product->name }}
                         </p>
                         <div>
-                            <span class="selling-price">{{ $product->selling_price }}</span>
-                            <span class="original-price">{{ $product->original_price }}</span>
+                            <span class="selling-price">${{ $product->selling_price }}</span>
+                            <span class="original-price">${{ $product->original_price }}</span>
                         </div>
                         <div>
                             @if ($product->productColors->count() > 0)
@@ -49,7 +49,7 @@
                                     @foreach ($product->productColors as $colorItem)
                                         {{-- <input type="radio" name="colorSelection"
                                             value="{{ $colorItem->id }}" />{{ $colorItem->color->name }} --}}
-                                        <label class="colorSelectionLabel"
+                                        <label class="colorSelectionLabel text-white"
                                             style="background-color: {{ $colorItem->color->code }} "
                                             wire:click="colorSelected({{ $colorItem->id }})">
                                             {{ $colorItem->color->name }}

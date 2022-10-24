@@ -133,7 +133,7 @@
             </tr>
             <tr>
                 <td>Tracking Id/No.:</td>
-                <td>{{ $order->tacking_no }}</td>
+                <td>{{ $order->tracking_no }}</td>
 
                 <td>Email Id:</td>
                 <td>{{ $order->email }}</td>

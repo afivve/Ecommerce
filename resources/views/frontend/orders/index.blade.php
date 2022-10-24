@@ -29,7 +29,7 @@
                                     @forelse ($orders as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
-                                            <td>{{ $item->tacking_no }}</td>
+                                            <td>{{ $item->tracking_no }}</td>
                                             <td>{{ $item->fullname }}</td>
                                             <td>{{ $item->payment_mode }}</td>
                                             <td>{{ $item->created_at->format('d-m-Y') }}</td>
