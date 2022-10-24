@@ -17,7 +17,9 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\WishlistController;
+use App\Http\Controllers\Frontend\UserFrontendController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+
 
 
 /*
@@ -57,6 +59,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('orders', [OrderController::class, 'index']);
     Route::get('orders/{orderId}', [OrderController::class, 'show']);
+
+    Route::get('profile', [UserFrontendController::class, 'index']);
+    Route::post('profile', [UserFrontendController::class, 'updateUserDetails']);
 });
 
 Route::get('thank-you', [FrontendController::class, 'thankyou']);
